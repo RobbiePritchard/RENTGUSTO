@@ -1,0 +1,15 @@
+{{#mdl-nav
+  title='RENTGUSTO'
+  closeDrawerOnItemClick=true
+  mobileTitle='Fixed Drawer'
+  }}
+  {{mdl-nav-item name='Home' route='tenants' inHeader=true inDrawer=true}}
+  {{mdl-nav-item name='Tenants'    route='tenants'    inDrawer=false}}
+
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col">
+
+      {{outlet}}
+    </div>
+  </div>
+{{/mdl-nav}}
