@@ -1,1 +1,27 @@
- <button {{action "saveRental"}}>Save Rental</button>
+<h2>Add A Rental</h2>
+<form {{action "saveRental" on="submit"}}>
+     Name: {{input type="text" value=name}}
+     Number Units: {{input type="text" value=units}}
+
+     <button type="submit">Save</button>
+</form>
+
+{{#each model as |rental|}}
+  <article class="listing">
+    <h3>{{rental.name}}</h3>
+    <div class="detail owner">
+      <span>Owner:</span> {{rental.owner}}
+    </div>
+    <div class="detail type">
+      <span>Type:</span> {{rental.type}}
+    </div>
+    <div class="detail location">
+      <span>Location:</span> {{rental.city}}
+    </div>
+    <div class="detail bedrooms">
+      <span>Number of bedrooms:</span> {{rental.bedrooms}}
+    </div>
+  </article>
+{{/each}}
+
+{{outlet}}
