@@ -30,4 +30,10 @@ export default Ember.Route.extend({
   model() {
     return rentals;
   }
+  
+  actions: {
+    addNewCategory(id, name) {
+      this.controller.get('model').pushObject({ id, name });
+    }
+  }
 });
