@@ -27,13 +27,23 @@ let rentals = [{
 }];
 
 export default Ember.Route.extend({
-  model() {
-    return rentals;
+  // model() {
+  //   return rentals;
+  // }
+  model: function() {
+      var newRental = this.store.createRecord('rental', {
+        name: 'Warehouse Apartments',
+        bedrooms: '40',
+        bathrooms: '40'
+      });
+
+      newRental.save();
+
+      return this.store.findAll('rental');
   }
-  
-  actions: {
-    addNewCategory(id, name) {
-      this.controller.get('model').pushObject({ id, name });
-    }
-  }
+  // actions: {
+  //   addNewCategory(id, name) {
+  //     this.controller.get('model').pushObject({ id, name });
+  //   }
+  // }
 });

@@ -2,6 +2,12 @@
 
 module.exports = function(environment) {
   var ENV = {
+    firebase: {
+     apiKey: 'AIzaSyAP_aHJrjYlN83sD41J_8Gb7b0YvAMeFBA',
+     authDomain: 'rentgusto.firebaseapp.com',
+     databaseURL: 'https://rentgusto.firebaseio.com',
+     storageBucket: 'rentgusto.appspot.com',
+    },
     modulePrefix: 'ember-frontendmasters',
     environment: environment,
     baseURL: '/',
