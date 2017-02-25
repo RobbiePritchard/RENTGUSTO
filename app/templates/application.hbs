@@ -6,15 +6,14 @@
   <!-- Main Nav in Header-->
   {{mdl-nav-item name='Home' route='tenants' inHeader=true inDrawer=true}}
   {{mdl-nav-item name='Tenants'    route='tenants'    inDrawer=false}}
-  {{mdl-nav-item name='List Rentals'    route='list-rentals'    inDrawer=false}}
-  {{mdl-nav-item name='Firebase Rentals'    route='rentals'    inDrawer=false}}
+  {{mdl-nav-item name='Accounting'    route='accounting'    inDrawer=false}}
+  {{mdl-nav-item name='Manage Rental Properties'    route='rentals'    inDrawer=false}}
   <!-- Navigation in the drawer -->
-  {{mdl-nav-item name='Sign Out' route='list-rentals'  inDrawer=true}}
+  <!-- {{mdl-nav-item name='Sign Out' route='list-rentals'  inDrawer=true}} -->
 
 
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">
-
       {{outlet}}
     </div>
   </div>

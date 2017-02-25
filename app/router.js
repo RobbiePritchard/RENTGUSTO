@@ -8,8 +8,8 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('tenants');
-  this.route('list-rentals');
   this.route('rentals');
+  this.route('accounting');
 });
 
 export default Router;

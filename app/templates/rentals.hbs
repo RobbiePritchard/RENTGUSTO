@@ -1,13 +1,39 @@
-<h2>Add A Rental</h2>
-<form {{action "saveRental" on="submit"}}>
-     Name: {{input type="text" value=name}}
-     Number Units: {{input type="text" value=units}}
+<h2>Create Rental</h2>
 
-     <button type="submit">Save</button>
-</form>
+<!-- just use a number and class 'column' or 'columns' -->
+<div class="row">
+  <div class="eight columns">
+    <form {{action "createRental" on="submit"}}>
+         {{mdl-textfield label='Title' value=name required=true}}
+         {{mdl-textfield label='Address 1:' value=address1}}
+         {{mdl-textfield label='Address 2:' value=address2}}
 
+         {{mdl-textfield label='Number of Units' value=units}}
+         {{mdl-textfield label='Sq. Ft.' value=sqft}}
+         {{mdl-textfield label='Bedrooms' value=bedrooms}}
+         {{mdl-textfield label='Bathrooms' value=bathrooms}}
+
+         <label for="selectRentalType">Type:
+         {{#custom-select value="type" action="selectRentalType" id="selectRentalType"}}
+          {{#custom-option value="commercial"}}commercial{{/custom-option}}
+          {{#custom-option value="residential"}}Residential{{/custom-option}}
+          {{#custom-option value="industrial"}}Industrial{{/custom-option}}
+         {{/custom-select}}</label>
+
+         <br/><br>
+         <div class='pull-right'>
+           {{mdl-button isRaised=true text='Create Rental' type='submit'}}
+         </div>
+    </form>
+  </div>
+</div>
+
+
+<!--
 {{#each model as |rental|}}
-  <article class="listing">
+
+{{#mdl-card title="{{rental.name}}"   }}
+  <div class="mdl-card__supporting-text">
     <h3>{{rental.name}}</h3>
     <div class="detail owner">
       <span>Owner:</span> {{rental.owner}}
@@ -21,7 +47,10 @@
     <div class="detail bedrooms">
       <span>Number of bedrooms:</span> {{rental.bedrooms}}
     </div>
-  </article>
-{{/each}}
+  </div>
+  <br/>
+  <hr/>
+{{/mdl-card}}
+{{/each}} -->
 
 {{outlet}}
