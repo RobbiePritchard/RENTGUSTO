@@ -10,6 +10,8 @@ Router.map(function() {
   this.route('tenants');
   this.route('rentals');
   this.route('accounting');
+  this.route('dashboard');
+  this.route('update-rental', { path: '/rentals/:rental_id' });
 });
 
 export default Router;

@@ -23,7 +23,10 @@ export default Ember.Controller.extend({
               address2: _address2
           });
 
-          newRental.save();
+          newRental.save().then(function(rental){
+            this.set('name','');
+            this.set('units', '');
+          });
 
           // newRental.save().then(function(response) {
           //     _that.set('responseMessage', "Thank you! We saved your email address with the following id: " + response.get('id'));

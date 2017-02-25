@@ -1,0 +1,32 @@
+<h2>Properties</h2>
+
+<a href='financials'>View Financials</a>
+<div class="five columns">
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th>Location</th>
+        <th>Property Type</th>
+        <th>Space (sqft)</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each model as |rental|}}
+      <tr>
+        <td>{{rental.name}}</td>
+        <td>{{rental.type}}</td>
+        <td>{{rental.sqft}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<!-- Charts -->
+<div class="five columns">
+  <h2>Finances Overview</h2>
+  Do later...
+</div>
+
+
+{{outlet}}
