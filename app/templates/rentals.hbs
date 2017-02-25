@@ -29,12 +29,15 @@
 </div>
 
 
-<!--
+
 {{#each model as |rental|}}
 
 {{#mdl-card title="{{rental.name}}"   }}
   <div class="mdl-card__supporting-text">
     <h3>{{rental.name}}</h3>
+
+     {{rental.id}}
+     <a href="rentals/{{rental.id}}">link</a>
     <div class="detail owner">
       <span>Owner:</span> {{rental.owner}}
     </div>
@@ -51,6 +54,6 @@
   <br/>
   <hr/>
 {{/mdl-card}}
-{{/each}} -->
+{{/each}}
 
 {{outlet}}
