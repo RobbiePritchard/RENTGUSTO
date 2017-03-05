@@ -1,9 +1,24 @@
-<h2>These are my tenants</h2>
+<h2>All Tenants</h2>
 
-<ul>
-  {{#each model as |scientist|}}
-    <li>{{scientist}}</li>
-  {{/each}}
-</ul>
+<td><a href="create-tenant">Create New Tenant</a></td>
+
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Unit</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each model as |tenant|}}
+    <tr>
+      <td>{{tenant.firstname}}</td>
+      <td>{{tenant.lastname}}</td>
+      <td>N/A</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
 
 {{outlet}}

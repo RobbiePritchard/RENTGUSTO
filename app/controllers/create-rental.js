@@ -12,26 +12,37 @@ export default Ember.Controller.extend({
           var _rentaltype = this.get('type');
           var _address1 =  this.get('address1');
           var _address2 =  this.get('address2');
+          var _rent = this.get('rent');
+
+          let unit = this.store.createRecord('unit', {
+            unit_name: 'test unit name',
+            rent: _rent
+          });
+
+          unit.save();
 
           var newRental = this.store.createRecord('rental', {
               name: _name,
-              units: _units,
               sqft: _sqft,
               bedrooms: _bedrooms,
               type: _rentaltype,
               address1: _address1,
-              address2: _address2
+              address2: _address2,
+              rent: _rent
           });
+
+          newRental.get('units').pushObject(unit);
 
           newRental.save().then(function(rental){
-            this.set('name','');
-            this.set('units', '');
-          });
+            console.log('the units are ' + _units);
 
-          // newRental.save().then(function(response) {
-          //     _that.set('responseMessage', "Thank you! We saved your email address with the following id: " + response.get('id'));
-          //     _that.set('emailAddress', '');
-          // });
+          });
+      },
+      addUnit: function(val) {
+           this.get('units').pushObject({unit_name: val});
+      },
+      getUnits: function() {
+        return this.get('units');
       }
   }
 });

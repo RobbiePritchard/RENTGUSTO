@@ -1,0 +1,32 @@
+<h2>Create Rental</h2>
+
+<!-- just use a number and class 'column' or 'columns' -->
+<div class="row">
+  <div class="eight columns">
+    <form {{action "createRental" on="submit"}}>
+         {{mdl-textfield label='Title' value=name required=true}}
+         {{mdl-textfield label='Address 1:' value=address1}}
+         {{mdl-textfield label='Address 2:' value=address2}}
+
+         {{mdl-textfield label='Number of Units' value=units type="number" validate=true}}
+         {{mdl-textfield label='Sq. Ft.' value=sqft}}
+         {{mdl-textfield label='Bedrooms' value=bedrooms}}
+         {{mdl-textfield label='Bathrooms' value=bathrooms}}
+
+         {{mdl-textfield label='Monthly Rent ($)' value=rent type="number" validate=true}}
+
+
+         <label for="selectRentalType">Type:
+         {{#custom-select value="type" action="selectRentalType" id="selectRentalType"}}
+          {{#custom-option value="commercial"}}commercial{{/custom-option}}
+          {{#custom-option value="residential"}}Residential{{/custom-option}}
+          {{#custom-option value="industrial"}}Industrial{{/custom-option}}
+         {{/custom-select}}</label>
+
+         <br/><br>
+         <div class='pull-right'>
+           {{mdl-button isRaised=true text='Create Rental' type='submit'}}
+         </div>
+    </form>
+  </div>
+</div>

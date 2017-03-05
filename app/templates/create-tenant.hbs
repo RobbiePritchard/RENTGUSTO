@@ -1,0 +1,16 @@
+<h2>Create tenant</h2>
+
+<div class="row">
+  <div class="eight columns">
+    <form {{action "createTenant" on="submit"}}>
+         {{mdl-textfield label='First Name:' value=firstname required=true}}
+         {{mdl-textfield label='Last Name:' value=lastname}}
+         {{mdl-textfield label='Monthly Rent ($)' value=rent type="number" validate=true}}
+
+         <br/><br>
+         <div class='pull-right'>
+           {{mdl-button isRaised=true text='Create Tenant' type='submit'}}
+         </div>
+    </form>
+  </div>
+</div>

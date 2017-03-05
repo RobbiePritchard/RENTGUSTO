@@ -1,3 +1,54 @@
-<h2>Update Rental</h2>
-{{model.name}}
+<h2>Update Property</h2>
+
+<div class="row">
+  <!-- <div class="eight columns">
+    {{#mdl-tabs
+      selected=basicTabsSelection}}
+      {{mdl-tab value='a' title="Overview"}}
+      {{mdl-tab value='b' title="Units"}}
+      {{mdl-tab value='c' title="Financials"}}
+    {{/mdl-tabs}}
+    <br/><br/>
+  </div> -->
+  <ul>
+  {{#each model.units as |unit|}}
+    <li>{{unit.name}}</li>
+  {{/each}}
+  </ul>
+</div>
+
+
+<!-- just use a number and class 'column' or 'columns' -->
+<div class="row">
+  <div class="eight columns">
+    <form {{action "updateRental" model on="submit"}}>
+         {{mdl-textfield label='Title' value=model.name required=true}}
+         {{mdl-textfield label='Address 1:' value=model.address1}}
+         {{mdl-textfield label='Address 2:' value=model.address2}}
+
+         {{mdl-textfield label='Number of Units' value=model.num_units type="number" validate=true}}
+         {{mdl-textfield label='Sq. Ft.' value=model.sqft}}
+         {{mdl-textfield label='Bedrooms' value=model.bedrooms}}
+         {{mdl-textfield label='Bathrooms' value=model.bathrooms}}
+
+         {{mdl-textfield label='Monthly Rent ($)' value=model.rent type="number" validate=true}}
+
+         <label for="selectRentalType">Type:
+         {{#custom-select value="type" action="selectRentalType" id="selectRentalType"}}
+          {{#custom-option value="commercial"}}commercial{{/custom-option}}
+          {{#custom-option value="residential"}}Residential{{/custom-option}}
+          {{#custom-option value="industrial"}}Industrial{{/custom-option}}
+         {{/custom-select}}</label>
+
+         {{mdl-textfield label='id' class="hidden" value=model.id}}
+
+         <br/><br>
+         <div class='pull-right'>
+           {{mdl-button isRaised=true text='Update Rental' type='submit'}}
+         </div>
+    </form>
+  </div>
+</div>
+
+
 {{outlet}}

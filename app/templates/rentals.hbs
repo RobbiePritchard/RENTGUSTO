@@ -1,59 +1,43 @@
-<h2>Create Rental</h2>
+<h2>Rental Properties</h2>
+<a href="create-rental">Create New Rental</a>
+<br/><hr/>
 
-<!-- just use a number and class 'column' or 'columns' -->
-<div class="row">
-  <div class="eight columns">
-    <form {{action "createRental" on="submit"}}>
-         {{mdl-textfield label='Title' value=name required=true}}
-         {{mdl-textfield label='Address 1:' value=address1}}
-         {{mdl-textfield label='Address 2:' value=address2}}
-
-         {{mdl-textfield label='Number of Units' value=units type="number" validate=true}}
-         {{mdl-textfield label='Sq. Ft.' value=sqft}}
-         {{mdl-textfield label='Bedrooms' value=bedrooms}}
-         {{mdl-textfield label='Bathrooms' value=bathrooms}}
-
-         <label for="selectRentalType">Type:
-         {{#custom-select value="type" action="selectRentalType" id="selectRentalType"}}
-          {{#custom-option value="commercial"}}commercial{{/custom-option}}
-          {{#custom-option value="residential"}}Residential{{/custom-option}}
-          {{#custom-option value="industrial"}}Industrial{{/custom-option}}
-         {{/custom-select}}</label>
-
-         <br/><br>
-         <div class='pull-right'>
-           {{mdl-button isRaised=true text='Create Rental' type='submit'}}
-         </div>
-    </form>
-  </div>
+<div class="ten columns">
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th>Property Name</th>
+        <th>Location</th>
+        <th>Property Type</th>
+        <th>Space (sqft)</th>
+        <th>Manage Property</th>
+        <th>View Financials</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each model as |rental|}}
+      <tr>
+        <td>{{rental.name}}</td>
+        <td>{{rental.address1}} {{rental.address2}} {{rental.city}}</td>
+        <td>{{rental.type}}</td>
+        <td>{{rental.sqft}}</td>
+        <td><a href="rentals/{{rental.id}}">Update/Manage</a></td>
+        <td><a href="rentals/{{rental.id}}">View Financials</a></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </div>
-
-
-
+<!-- 
 {{#each model as |rental|}}
-
-{{#mdl-card title="{{rental.name}}"   }}
-  <div class="mdl-card__supporting-text">
-    <h3>{{rental.name}}</h3>
-
-     {{rental.id}}
-     <a href="rentals/{{rental.id}}">link</a>
-    <div class="detail owner">
-      <span>Owner:</span> {{rental.owner}}
-    </div>
-    <div class="detail type">
-      <span>Type:</span> {{rental.type}}
-    </div>
-    <div class="detail location">
-      <span>Location:</span> {{rental.city}}
-    </div>
-    <div class="detail bedrooms">
-      <span>Number of bedrooms:</span> {{rental.bedrooms}}
-    </div>
-  </div>
-  <br/>
-  <hr/>
-{{/mdl-card}}
-{{/each}}
+{{#mdl-table content=rows as |row|}}
+	{{#mdl-table-col label='Id'}}
+		{{row.id}}
+	{{/mdl-table-col}}
+	{{#mdl-table-col label='Name'}}
+		{{row.name}}
+	{{/mdl-table-col}}
+{{/mdl-table}}
+{{/each}} -->
 
 {{outlet}}
